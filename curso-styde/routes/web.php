@@ -3,20 +3,8 @@
 Route::get('/', function () {
     return 'Inicio';
 });
-Route::get('/usuarios', function() {
-    return "Usuarios";
-});
-Route::get('/usuarios/nuevo', function() {
-    return "Crear nuevo usuario";
-});
-Route::get('/usuarios/{id}', function($id) {
-    return "Hola usuario: {$id}";
-});
-Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null) {
-    $name = ucfirst($name);
-    if($nickname){
-        return "Bienvenido {$name}, tu nickname es: {$nickname}";
-    } else {
-        return "Bienvenido {$name}";
-    }
-});
+Route::get('/usuarios', 'UserController@index');
+
+Route::get('/usuarios/nuevo', 'UserController@create');
+Route::get('/usuarios/{id}', 'UserController@show');
+Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController@index');
