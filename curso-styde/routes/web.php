@@ -3,10 +3,13 @@
 Route::get('/', function () {
     return 'Inicio';
 });
-Route::get('/usuario/nuevo', function() {
+Route::get('/usuarios', function() {
+    return "Usuarios";
+});
+Route::get('/usuarios/nuevo', function() {
     return "Crear nuevo usuario";
 });
-Route::get('/usuario/{id}', function($id) {
+Route::get('/usuarios/{id}', function($id) {
     return "Hola usuario: {$id}";
 });
 Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null) {
